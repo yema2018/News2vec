@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 import networkx as nx
-import node2vec
+import random_walks
 from news2vec import newsfeature2vec
 
 def parse_args():
