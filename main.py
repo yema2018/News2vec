@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 import networkx as nx
-import node2vec
+import random_walks
 from news2vec import newsfeature2vec
 
 def parse_args():
@@ -91,7 +91,7 @@ def main(args):
 	Pipeline for representational learning for all nodes in a graph.
 	'''
 	nx_G = read_graph()
-	G = node2vec.Graph(nx_G, args.directed, args.p, args.q)
+	G = random_walks.Graph(nx_G, args.directed, args.p, args.q)
 	G.preprocess_transition_probs()
 	walks = G.simulate_walks(args.num_walks, args.walk_length)
 	print(len(walks),walks[0])
