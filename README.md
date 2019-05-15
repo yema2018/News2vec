@@ -8,5 +8,5 @@ or you can use
 which is compilered by c++ to output random walks.
 
 # Example
-    python main.py --input graph/8500_cut.edgelist --output emb/8500.emd --map map/8500.map
+    python main.py --input graph/8500_cut.edgelist --output emb/8500.emb --map map/8500.map
    
