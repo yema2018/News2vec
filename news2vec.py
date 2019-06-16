@@ -110,6 +110,7 @@ class newsfeature2vec:
                 labels[i * self.num_skips + j, 0] = buffer[target]
             buffer.append(self.data[self.data_index])
             self.data_index = (self.data_index + 1) % len(self.data)
+        self.data_index = (self.data_index + len(self.data) - span) % len(self.data)
         return batch, labels
 
     def build_model(self):
