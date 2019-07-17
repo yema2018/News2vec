@@ -17,7 +17,7 @@ import pandas as pd
 
 
 class newsfeature2vec:
-    def __init__(self, walks, out_dir, batch_size=1, embedding_size=128, skip_window=5, num_skips=1, neg_samples=5, include=True, iter=3000000):
+    def __init__(self, walks, out_dir, batch_size=10, embedding_size=128, skip_window=5, num_skips=10, neg_samples=5, include=True, iter=3000000):
         self.iter = iter
         self.data_index = 0
         if not include:
@@ -44,15 +44,16 @@ class newsfeature2vec:
                     if ',' in word:
                         inputs = np.array([self.dictionary_emb[i] for i in word.split(',')], dtype=int)
                     else:
-                        inputs = np.array(self.dictionary_emb[word], dtype=int)
+                        continue
+                        # inputs = np.array(self.dictionary_emb[word], dtype=int)
                     feed_dict = {self.train_inputs: inputs.reshape(1,-1), self.train_labels: labels[i].reshape(1,1)}
 
                     _, loss_val= session.run([self.optimizer, self.loss], feed_dict=feed_dict)
                     average_loss += loss_val
 
-                if step % 2000 == 0:
-                    if step > 0:
-                        average_loss /= (2000*self.batch_size)
+                if step % 2000 == 0 and step > 0:
+
+                    average_loss /= (2000*self.batch_size)
                     # The average loss is an estimate of the loss over the last 2000 batches.
                     print("Average loss at step ", step, ": ", average_loss)
                     average_loss = 0

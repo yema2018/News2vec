@@ -20,7 +20,7 @@ def parse_args():
 						help='Map indice to nodes')
 
 	parser.add_argument('--include', nargs='?', default=True,
-						help='Boolean including keyword nodes')
+						help='Boolean including element nodes')
 
 	parser.add_argument('--dimensions', type=int, default=128,
 						help='Number of dimensions. Default is 128.')
@@ -31,8 +31,8 @@ def parse_args():
 	parser.add_argument('--num-walks', type=int, default=5,
 						help='Number of walks per source. Default is 5.')
 
-	parser.add_argument('--window-size', type=int, default=10,
-						help='Context size for optimization. Default is 10.')
+	parser.add_argument('--window-size', type=int, default=5,
+						help='Context size for optimization. Default is 5.')
 
 	parser.add_argument('--p', type=float, default=1,
 						help='Return hyperparameter. Default is 1.')
@@ -41,7 +41,7 @@ def parse_args():
 						help='Inout hyperparameter. Default is 1.')
 
 	parser.add_argument('--weighted', dest='weighted', action='store_true',
-						help='Boolean specifying (un)weighted. Default is unweighted.')
+						help='Boolean specifying (un)weighted. Default is weighted.')
 	parser.add_argument('--unweighted', dest='unweighted', action='store_false')
 	parser.set_defaults(weighted=True)
 
