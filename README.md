@@ -1,5 +1,5 @@
 # News2vec
-News2vec: network embedding with subnode information
+News2vec: news network embedding with subnode information
 
 The codes of random walks cites
     https://github.com/aditya-grover/node2vec
