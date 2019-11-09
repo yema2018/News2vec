@@ -10,3 +10,6 @@ which is compilered by c++ to output random walks.
 # Example
     python main.py --input graph/8500_cut.edgelist --output emb/8500.emb --map map/8500.map
    
+# Paper
+
+For the related paper please refer to https://www.aclweb.org/anthology/D19-1490/
